@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Results</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0fff0;
+            padding: 30px;
+        }
+        .correct {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+
+        .fancy-navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            background: black;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fancy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fancy-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 1px 1px 4px #222;
+        }
+
+        .fancy-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .fancy-menu li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1rem;
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: linear-gradient(145deg, grey, grey);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .fancy-menu li a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(145deg, black, black);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Fashionable Navigation Bar -->
+    <nav class="fancy-navbar">
+        <div class="fancy-container">
+            <div class="fancy-logo">Adaptive IQ</div>
+            <ul class="fancy-menu">
+                <li><a href="/">🏠 Home</a></li>
+                <li><a href="/index">🧠 Assessment</a></li>
+                <li><a href="/result">📊 Results</a></li>
+                <li><a href="/dashboard/{{ user_id }}">📘 Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Hey {{ user_name }}, here's how you did 💕</h1>
+    <h2>You scored {{ score }} out of {{ total }}!</h2>
+    <hr>
+
+    {% for result in results %}
+        <div>
+            <p><strong>{{ result.question }}</strong></p>
+            <p>Your Answer:
+                <span class="{{ 'correct' if result.your_answer == result.correct_answer else 'wrong' }}">
+                    {{ result.your_answer }}
+                </span>
+            </p>
+            <p>Correct Answer: {{ result.correct_answer }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+
+    <a href="{{ url_for('dashboard', user_id=user_id) }}">
+        <button>Track Results</button>
+    </a>
+
+</body>
+</html>

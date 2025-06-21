@@ -1,0 +1,201 @@
+/* Reset some basic elements */
+.fancy-navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: black; /* semi-transparent */
+    backdrop-filter: blur(10px); /* glassy effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fancy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fancy-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px #222;
+}
+
+.fancy-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.fancy-menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: linear-gradient(145deg,  grey, grey);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.fancy-menu li a:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, black, black);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+html, body {
+    height: 100%;  /* Make sure both the html and body are 100% height */
+    margin: 0;     /* Remove default margins */
+}
+
+
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: url('bg-image.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    min-height: 100vh;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    font-size: 5rem;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Form Styling */
+form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+/* Input Fields */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border: 2px solid #cce7ff;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3399ff;
+}
+
+/* Buttons */
+button {
+    background-color: #3399ff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007acc;
+}
+
+/* Questions Section */
+fieldset {
+    margin-bottom: 20px;
+    border: 2px solid #eee;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.question-options label {
+    display: block;
+    margin: 10px 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+/* Welcome Section */
+.welcome-message {
+    background-color: #e3f2fd;
+    border-left: 5px solid #64b5f6;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(100, 181, 246, 0.2);
+}
+
+.welcome-message h2 {
+    color: #007acc;
+    font-size: 1.5rem;
+}
+
+.welcome-message .highlight {
+    color: #ff4081;
+    font-weight: bold;
+}
+
+/* Timer Styling */
+#timer {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #f06292;
+}

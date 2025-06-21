@@ -1,0 +1,105 @@
+/* ✨ Fancy NavBar Styling ✨ */
+.fancy-navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: black; /* semi-transparent */
+    backdrop-filter: blur(10px); /* glassy effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fancy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fancy-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px #222;
+}
+
+.fancy-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.fancy-menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: linear-gradient(145deg,  grey, grey);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.fancy-menu li a:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, black, black);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+html, body {
+    height: 100%;  /* Make sure both the html and body are 100% height */
+    margin: 0;     /* Remove default margins */
+}
+
+body {
+    background: url('bg-image.jpg') no-repeat center center fixed; 
+    background-size: cover;  /* Makes sure the image covers the entire page */
+    color: #333;  /* You can set the default text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.8);  /* A little transparent white background */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    color: #333;  /* Text color */
+}
+button {
+    background-color:  rgb(43, 162, 226); /* Bright orange color for the button */
+    color: #fff;
+    padding: 15px 30px;  /* Larger padding for a bigger button */
+    border: none;
+    border-radius: 50px;  /* Rounded corners for a smooth look */
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Smooth transition for hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+    font-weight: bold;  /* Make the text bold for better visibility */
+    letter-spacing: 1px;  /* Slight space between letters for a modern look */
+}
+
+button:hover {
+    background-color: rgb(43, 162, 226);  /* Darker orange on hover */
+    transform: scale(1.1);  /* Slightly enlarge the button */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);  /* Bigger shadow on hover */
+    color: #ffffff;  /* Keep text color white */
+}
+
+button:focus {
+    outline: none;  /* Remove outline on click */
+    box-shadow: 0 0 10px 2px rgba(255, 102, 0, 0.8);  /* Add a glowing effect when focused */
+}

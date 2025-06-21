@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Fashionable Navigation Bar -->
+    <nav class="fancy-navbar">
+        <div class="fancy-container">
+            <div class="fancy-logo">Adaptive IQ</div>
+            <ul class="fancy-menu">
+                <li><a href="/">🏠 Home</a></li>
+                <li><a href="/index">🧠 Assessment</a></li>
+                <li><a href="/result">📊 Results</a></li>
+                {% if user_id %}
+                    <li><a href="/dashboard/{{ user_id }}">📘 Dashboard</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <h1></h1>
+
+    {% if not questions %}
+        <!-- User ID and Name Form -->
+        <form method="POST">
+            <label for="user_id">Enter ID:</label>
+            <input type="text" name="user_id" required><br>
+
+            <label for="name">Enter Name:</label>
+            <input type="text" name="name" required><br>
+
+            <button type="submit">Start</button>
+        </form>
+    {% else %}
+        <!-- Quiz Form -->
+        <form method="POST" action="/submit">
+            <!-- Hidden inputs to pass user ID and name -->
+            <input type="hidden" name="user_id" value="{{ user_id }}">
+            <input type="hidden" name="user_name" value="{{ user_name }}">
+
+            {% for question in questions %}
+                <fieldset>
+                    <legend><strong>Q{{ loop.index }}:</strong> {{ question.prompt }}</legend>
+                    <label><input type="radio" name="answer_{{ question.question_id }}" value="A" required> {{ question.A }}</label><br>
+                    <label><input type="radio" name="answer_{{ question.question_id }}" value="B"> {{ question.B }}</label><br>
+                    <label><input type="radio" name="answer_{{ question.question_id }}" value="C"> {{ question.C }}</label><br>
+                    <label><input type="radio" name="answer_{{ question.question_id }}" value="D"> {{ question.D }}</label><br>
+                    <label><input type="radio" name="answer_{{ question.question_id }}" value="E"> {{ question.E }}</label><br>
+                </fieldset>
+                <br>
+            {% endfor %}
+            
+            <button type="submit">Submit Answers</button>
+        </form>
+    {% endif %}
+</body>
+</html>
